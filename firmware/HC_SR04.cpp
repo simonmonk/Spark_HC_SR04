@@ -19,7 +19,7 @@ double HC_SR04::getDistanceCM(){
 }
 
 double HC_SR04::getDistanceInch(){
-  return (getDistanceCM() * 2.5);
+  return (getDistanceCM() / 2.5);
 }
 
 void HC_SR04::sendTriggerPulse(int pin){
