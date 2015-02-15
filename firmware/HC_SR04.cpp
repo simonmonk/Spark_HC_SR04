@@ -10,11 +10,11 @@ HC_SR04::HC_SR04(int trigPin, int echoPin){
 double HC_SR04::getDistanceCM(){
   sendTriggerPulse(_trigPin);
   waitForEcho(_echoPin, HIGH, 100);
-  long startTime = millis();
+  long startTime = micros();
   waitForEcho(_echoPin, LOW, 100);
-  long endTime = millis();
+  long endTime = micros();
   long duration = endTime - startTime;
-  double distance = duration * 1000.0 / 29.0 / 2.0;
+  double distance = duration / 29.0 / 2.0;
   return distance;
 }
 
