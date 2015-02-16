@@ -14,6 +14,8 @@ public:
 private:
   int _echoPin;
   int _trigPin;
+  int _minCM;
+  int _maxCM;
   
   void sendTriggerPulse(int pin);
   void waitForEcho(int pin, int value, long timeout);
