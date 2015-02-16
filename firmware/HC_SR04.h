@@ -7,15 +7,15 @@ class HC_SR04
 {
 public: 
   HC_SR04(int trigPin, int echoPin);  
-  HC_SR04(int trigPin, int echoPin, int minCM, int maxCM); 
+  HC_SR04(int trigPin, int echoPin, double minCM, double maxCM); 
   double getDistanceCM();  
   double getDistanceInch();
   
 private:
   int _echoPin;
   int _trigPin;
-  int _minCM;
-  int _maxCM;
+  double _minCM;
+  double _maxCM;
   
   void sendTriggerPulse(int pin);
   void waitForEcho(int pin, int value, long timeout);
