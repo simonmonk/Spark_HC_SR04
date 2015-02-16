@@ -6,7 +6,7 @@
 class HC_SR04
 {
 public: 
-  HC_SR04(int trigPin, int echoPin, double minCM=10, double maxCM=250); 
+  HC_SR04(int trigPin, int echoPin, double minCM=10.0, double maxCM=250.0); 
   double getDistanceCM();  
   double getDistanceInch();
   
