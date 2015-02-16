@@ -1,6 +1,12 @@
 #include "HC_SR04.h"
  
 HC_SR04::HC_SR04(int trigPin, int echoPin){
+ HC_SR04(trigPin, echoPin, 10, 300);
+}
+
+HC_SR04::HC_SR04(int trigPin, int echoPin, int minCM, int maxCM){
+  _minCM = minCM;
+  _maxCM = maxCM;
   _trigPin = trigPin;
   _echoPin = echoPin;
   pinMode(_trigPin, OUTPUT);
@@ -15,11 +21,18 @@ double HC_SR04::getDistanceCM(){
   long endTime = micros();
   long duration = endTime - startTime;
   double distance = duration / 29.0 / 2.0;
+  if (distance < _minCM || distance > _maxCM){
+   return -1;
+  }
   return distance;
 }
 
 double HC_SR04::getDistanceInch(){
-  return (getDistanceCM() / 2.5);
+  double distCM = getDistanceCM();
+  if (distCM == -1){
+     return -1;
+  }
+  return (distCM / 2.5);
 }
 
 void HC_SR04::sendTriggerPulse(int pin){
