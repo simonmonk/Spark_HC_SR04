@@ -1,10 +1,10 @@
 #include "HC_SR04.h"
  
 HC_SR04::HC_SR04(int trigPin, int echoPin){
- HC_SR04(trigPin, echoPin, 10, 300);
+ HC_SR04(trigPin, echoPin, 10.0, 300.0);
 }
 
-HC_SR04::HC_SR04(int trigPin, int echoPin, int minCM, int maxCM){
+HC_SR04::HC_SR04(int trigPin, int echoPin, double minCM, double maxCM){
   _minCM = minCM;
   _maxCM = maxCM;
   _trigPin = trigPin;
