@@ -26,6 +26,13 @@ GND ---|
 
 Test it using curl like this:
 curl https://api.spark.io/v1/devices/<deviceid>/cm?access_token=<accesstoken>
+
+The default usable rangefinder is 10cm to 250cm. Outside of that range -1 is returned as the distance.
+
+You can change this range by supplying two extra parameters to the constructor of minCM and maxCM, like this:
+
+HC_SR04 rangefinder = HC_SR04(trigPin, echoPin, 5.0, 300.0);
+
 */
 
 HC_SR04 rangefinder = HC_SR04(trigPin, echoPin);
