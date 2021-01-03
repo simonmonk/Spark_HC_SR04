@@ -41,7 +41,7 @@ double HC_SR04::getDistanceInch(){
 
 void HC_SR04::sendTriggerPulse(int pin){
     digitalWrite(pin, HIGH);
-    delayMicroseconds(10);
+    delayMicroseconds(20);
     digitalWrite(pin, LOW);
 }
 
